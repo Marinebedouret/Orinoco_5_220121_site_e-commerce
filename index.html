@@ -9,34 +9,40 @@
 
 	<title>Orinoco | Accueil</title>
 
-	<link rel="shortcut icon" href="assets/images/small-logo_orinoco.png">
+	<!--Opengraph-->
+	<meta property="og:title" content="Orinoco site e-commerce de meubles en chêne" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="" />
+	<meta property="og:description" content="Site e-commerce de maubles en chêne" />
 
+	<!--Icône onglet-->
+	<link rel="shortcut icon" href="front/assets/images/small-logo_orinoco.png">
+
+	<!--font google-->
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+	<!--Bootstrap-->
+	<link rel="stylesheet" href="front/assets/css/bootstrap.min.css">
+
+	<!--FontAwesome-->
+	<link rel="stylesheet" href="front/assets/css/font-awesome.min.css">
 	<script src="https://kit.fontawesome.com/f4c46f890f.js" crossorigin="anonymous"></script>
-	
 
-	<!-- Custom styles for our template -->
-	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
-	<link rel="stylesheet" href="assets/css/main.css">
 
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="assets/js/html5shiv.js"></script>
-	<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
+	<!-- Bootstrap template-->
+	<link rel="stylesheet" href="front/assets/css/bootstrap-theme.css" media="screen">
+	<link rel="stylesheet" href="front/assets/css/main.css">
 </head>
 
 <body class="home">
-	<!--Navbar-->
+	<!--Navbar principale-->
 	<div class="navbar navbar-inverse navbar-fixed-top headroom">
 		<div class="container">
 			<div class="navbar-header">
-				<!-- Button for smallest screens -->
+				<!-- Bouton pour les petits écrans -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				<a class="navbar-brand" href="index.html"><img class="logo" src="assets/images/logo_orinoco.png"
+				<a class="navbar-brand" href="index.html"><img class="logo" src="front/assets/images/logo_orinoco.png"
 						alt="Logo Orinoco"></a>
 			</div>
 			<div class="navbar-collapse collapse">
@@ -47,11 +53,11 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="about.html">Qui sommes nous ?</a></li>
-							<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
+							<li class="active"><a href="contact.html">Contact</a></li>
 						</ul>
 					</li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a class="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
+					<li><a class="btn" href="signin.html">Connexion / Inscription</a></li>
+					<li><a href="panier.html"> <i class="fas fa-shopping-cart"></i> Panier</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
@@ -72,7 +78,7 @@
 	<!-- /Header -->
 
 	<!-- Intro -->
-	<div class="container text-center">
+	<aside class="container text-center">
 		<br> <br>
 		<h2 class="thin">Depuis 20 ans, Orinoco, conçoit des meubles en bois massif.<br> Conçus pour durer avec un
 			assemblage traditionnel.</h2>
@@ -81,19 +87,17 @@
 			Nos produits sont livrés déjà montés, pour vous permettre de profiter directement de votre commande sans
 			attendre.
 		</p>
-	</div>
+	</aside>
 	<!-- /Intro-->
 
-	<!-- Highlights - jumbotron -->
-	<div class="jumbotron top-space">
+	<!--jumbotron -->
+	<article class="jumbotron top-space">
 		<div class="container">
-
 			<h3 class="text-center thin">Découvrez nos produits best sellers</h3>
-
 			<div class="row">
 				<div class="col-md-6 col-sm-6 highlight">
 					<div class="h-caption">
-						<a href="produits.html"><img class="picture-presentation" src="assets/images/table_1.jpg"></a>
+						<a href="produits.html"><img class="picture-presentation" src="front/assets/images/table_1.jpg"></a>
 						<h4>Bout de canapé en bois de chêne massif</h4>
 					</div>
 					<div class="h-body text-center">
@@ -102,7 +106,7 @@
 				</div>
 				<div class="col-md-6 col-sm-6 highlight">
 					<div class="h-caption">
-						<a href="produits.html"><img class="picture-presentation" src="assets/images/table_2.jpg"></a>
+						<a href="produits.html"><img class="picture-presentation" src="front/assets/images/table_2.jpg"></a>
 						<h4>Table rectangulaire en bois de chêne massif</h4>
 					</div>
 					<div class="h-body text-center">
@@ -111,44 +115,26 @@
 				</div>
 			</div> <!-- /row  -->
 
-		</div>
-	</div>
-
-	<!-- Social links. @TODO: replace by link/instructions in template -->
-	<section id="social">
-		<div class="container">
-			<div class="wrapper clearfix">
-				<!-- AddThis Button BEGIN -->
-				<div class="addthis_toolbox addthis_default_style">
-					<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-					<a class="addthis_button_tweet"></a>
-					<a class="addthis_button_linkedin_counter"></a>
-					<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-				</div>
-				<!-- AddThis Button END -->
-			</div>
-		</div>
-	</section>
-	<!-- /social links -->
-
+		</div> <!-- /container-->
+	</article>
 
 	<footer id="footer" class="top-space">
-
 		<div class="footer1">
 			<div class="container">
 				<div class="row">
-
+					<!--contact - footer-->
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Nous contacter</h3>
 						<div class="widget-body">
-							<p><a><span>05 00 00 00 00</span></a>  <br>Notre service clients est à votre écoute. <br> Du Lundi au Vendredi de 9h00 à 19h00 <br>
+							<p><a><span>05 00 00 00 00</span></a> <br>Notre service clients est à votre écoute. <br> Du
+								Lundi au Vendredi de 9h00 à 19h00 <br>
 								<a href="mailto:#">contact@orinoco.com</a><br>
 								<br>
 								<span>30 chemin de l'oiseau <br> Paris <br> 75000</span>
 							</p>
 						</div>
 					</div>
-
+					<!--Reseaux - sociaux-->
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Suivez-nous</h3>
 						<div class="widget-body">
@@ -161,9 +147,10 @@
 						</div>
 					</div>
 
+					<!--Paiement-->
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Paiement securisé</h3>
-					<div class="widget-body">
+						<div class="widget-body">
 							<p class="follow-me-icons">
 								<a href="#"><i class="fab fa-cc-visa"></i></a>
 								<a href="#"><i class="fab fa-cc-mastercard"></i></a>
@@ -173,15 +160,15 @@
 					</div>
 
 
-					
+
 				</div> <!-- /row of widgets -->
-			</div>
+			</div> <!-- /container-->
 		</div>
+		<!--footer1-->
 
 		<div class="footer2">
 			<div class="container">
 				<div class="row">
-
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
@@ -189,11 +176,10 @@
 								<a href="produits.html">Produits</a> |
 								<a href="about.html">Qui sommes nous ?</a> |
 								<a href="contact.html">Contact</a> |
-								<b><a href="signup.html">Sign up</a></b>
+								<b><a href="signup.html">Inscription</a></b>
 							</p>
 						</div>
 					</div>
-
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="text-right">
@@ -203,9 +189,9 @@
 					</div>
 
 				</div> <!-- /row of widgets -->
-			</div>
+			</div> <!-- /container -->
 		</div>
-
+		<!--footer2-->
 	</footer>
 
 

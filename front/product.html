@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Orinoco site web page des produits">
+    <meta name="author" content="Sergey Pozhilov (GetTemplate.com), Marine Bedouret">
+
+    <title>Produit</title>
+    <!--Icône onglet-->
+    <link rel="shortcut icon" href="../images/small-logo_orinoco.png">
+
+    <!--font google-->
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/f4c46f890f.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap template-->
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top headroom">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Button for smallest screens -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
+                        class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand" href="index.html"><img class="logo" src="../images/logo_orinoco.png"
+                        alt="Logo Orinoco"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="products.html">Produits</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a href="about.html">Qui somme nous ?</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="btn" href="signin.html">Connexion / Inscription</a></li>
+                    <li><a href="shopping.html"><i class="fas fa-shopping-cart"></i> Panier</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    <!-- /.navbar -->
+
+    <header id="head" class="secondary"></header>
+
+    <!-- Row -->
+    <main class="row">
+
+
+        <ol class="breadcrumb">
+            <li><a href="index.html">Accueil</a></li>
+            <li class="active"><a href="products.html">Produits</li></a>
+            <li>Produit</li>
+        </ol>
+        <!--Liste de tous les produits de la page-->
+        <article>
+            <div>
+                <h1>Titre h1</h1>
+                <div id="furniture-product"></div>
+            </div>
+            <h2 id="furniture-name"></h2><hr>
+            <p id="description"></p><hr>
+            <h3 id="prix"></h3><hr>
+        </article>
+
+
+
+
+    </main>
+    <!--/Row-->
+    <script src="product.js"></script>
+</body>
+
+</html>

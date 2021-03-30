@@ -5,15 +5,15 @@ const rowCarte = document.createElement("div")
 rowCarte.className = 'row'
 
 //APPEL DE L'API AVEC LA METHODE FETCH
-fetch('http://localhost:3000/api/furniture',{
+fetch("http://localhost:3000/api/furniture/",{
     method:'GET', headers:{'Accept':'application/json','Content-Type':'application/json'}
 })
 .then(response => response.json()) //then() déclenche l'objet Promise //reponse en JSON
 .then(response => {
-    afficherFurnitures(response)
+    getAllFurniture(response)
 })
 //FONCTION AFFICHAGE DES 5 MEUBLES
-function afficherFurnitures(furnitures){
+function getAllFurniture(furnitures){
     furnitures.forEach(furniture => {                           //forEach execute la fonction sur l'ensemble de produits
     //BOUCLE POUR CHAQUE FURNITURE - CREATION DE L'EMPLACEMENT DE CHAQUE ELEMENT
         const carte = document.createElement("div")             //div englobant l'ensemble du produit
@@ -30,7 +30,7 @@ function afficherFurnitures(furnitures){
         titre.textContent = furniture.name
         image.src = furniture.imageUrl
         prix.textContent = furniture.price/100 +',00' + "€"
-        lien.href = "front/product.html?id=" + furniture._id
+        lien.href = "product.html?id=" + furniture._id
         lien.textContent = "En savoir plus"
     //MISE EN PLACE DE CHAQUES ELEMENTS
         carte.appendChild(titre)

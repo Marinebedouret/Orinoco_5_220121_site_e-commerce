@@ -35,12 +35,12 @@
                 <!-- Button for smallest screens -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                         class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <a class="navbar-brand" href="index.html"><img class="logo" src="../images/logo_orinoco.png"
+                <a class="navbar-brand" href="../index.html"><img class="logo" src="../images/logo_orinoco.png"
                         alt="Logo Orinoco"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right">
-                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="../index.html">Accueil</a></li>
                     <li><a href="products.html">Produits</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
@@ -65,7 +65,7 @@
 
 
         <ol class="breadcrumb">
-            <li><a href="index.html">Accueil</a></li>
+            <li><a href="../index.html">Accueil</a></li>
             <li class="active"><a href="products.html">Produits</li></a>
             <li>Produit</li>
         </ol>
@@ -73,11 +73,12 @@
         <article>
             <div>
                 <h1>Titre h1</h1>
-                <div id="furniture-product"></div>
             </div>
+            <div id="furniture-product">
             <h2 id="furniture-name"></h2><hr>
             <p id="description"></p><hr>
             <h3 id="prix"></h3><hr>
+        </div>
         </article>
 
 
@@ -85,6 +86,12 @@
 
     </main>
     <!--/Row-->
+    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/jQuery.headroom.min.js"></script>
+	<script src="assets/js/template.js"></script>
     <script src="product.js"></script>
 </body>
 

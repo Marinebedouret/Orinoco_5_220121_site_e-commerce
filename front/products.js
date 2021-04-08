@@ -25,13 +25,13 @@ function getAllFurniture(furnitures){
         const prix = document.createElement("h3")                //affichage du prix en dessous de l'image
         prix.className = 'card-text'
         const lien = document.createElement("a");               //affichage du bouton
-        lien.className = 'btn btn-secondary btn-lg';
+        lien.className = 'btn btn-action btn-lg';
     //CREATION DU CONTENU DES ELEMENTS
         titre.textContent = furniture.name
         image.src = furniture.imageUrl
         prix.textContent = furniture.price/100 +',00' + "€"
         lien.href = "product.html?id=" + furniture._id
-        lien.textContent = "En savoir plus"
+        lien.textContent = "Voir le produit"
     //MISE EN PLACE DE CHAQUES ELEMENTS
         carte.appendChild(titre)
         carte.appendChild(image)
@@ -40,5 +40,6 @@ function getAllFurniture(furnitures){
         rowCarte.appendChild(carte)
         main.appendChild(rowCarte)
 
-    })
+    });
+
 }

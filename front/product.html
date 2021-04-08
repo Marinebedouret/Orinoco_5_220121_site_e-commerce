@@ -63,7 +63,6 @@
     <!-- Row -->
     <main class="row">
 
-
         <ol class="breadcrumb">
             <li><a href="../index.html">Accueil</a></li>
             <li class="active"><a href="products.html">Produits</li></a>
@@ -71,27 +70,38 @@
         </ol>
         <!--Liste de tous les produits de la page-->
         <article>
-            <div>
-                <h1>Titre h1</h1>
+            <div class="col-lg-12">
+                <div id="furniture_product"></div>
             </div>
-            <div id="furniture-product">
-            <h2 id="furniture-name"></h2><hr>
-            <p id="description"></p><hr>
-            <h3 id="prix"></h3><hr>
-        </div>
+                <h1 id="furniture-name"></h1>
+                <h3 id="description"></h3>
+                <h2 id="prix"></h2>
+            <div>
+                <form action="#" id="form-varnish">
+                    <div class="selection">
+                        <label for="choosevarnish">Choisissez le vernis qui vous correspond : </label>
+                        <select name="varnish" id="choosevarish">
+                        </select>
+
+                        <!--Bouton ajout au panier-->
+                        <p class="tagline"></p>
+                        <div id="panier"></div>
+                        
+                    </div>
+                </form>
+            </div>
+
+
         </article>
-
-
-
 
     </main>
     <!--/Row-->
     <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script src="assets/js/headroom.min.js"></script>
-	<script src="assets/js/jQuery.headroom.min.js"></script>
-	<script src="assets/js/template.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="assets/js/headroom.min.js"></script>
+    <script src="assets/js/jQuery.headroom.min.js"></script>
+    <script src="assets/js/template.js"></script>
     <script src="product.js"></script>
 </body>
 

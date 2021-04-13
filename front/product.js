@@ -64,30 +64,30 @@ adress('http://localhost:3000/api/furniture' + "/" + idFurniture)
 }
    
     //Bouton panier
-    const panier = document.getElementById('panier');
+    const panier = document.getElementById('AddProductPanier');
     //Création du bouton pour ajouter au panier
     const btnPanier = document.createElement('a');
     btnPanier.className = "btn btn-action btn-lg";
     btnPanier.href = "shopping.html";
     btnPanier.innerHTML = 'Ajouter au panier';
     panier.append(btnPanier);
-    
+
 
     //addEventListener sert à écouter l'événement click sur le bouton ajouter au panier
-    btnPanier.addEventListener('click', function (ajout) {
+   btnPanier.addEventListener('click', function (ajout) {
     // Annule l'action par défaut de l'élément
-        ajout.preventDefault();
-    //Affichage & récupération des produits dans le panier depuis le localStorage
-        const addShopping = JSON.parse(localStorage.getItem('panier'));
+        ajout.preventDefault()
+
         
+
         //Récupére la valeur de l'option sélectionnée (valeur = vernis du produit)
         let elementvarnish = choosevarnish.options[choosevarnish.selectedIndex].value;
-     
-        
+        const panierAjout = JSON.parse(localStorage.getItem('panier'));
+        console.log(panierAjout);
         //find() renvoie la valeur du premier élément trouvé dans le tableau qui respect la condition donnée par la fonction passé en argument
-        const elementPanier = addShopping.find(furniture => {
-            return furniture.idFurniture == idFurniture && furniture.elementvarnish == elementvarnish;
-        });
+        const elementPanier = panierAjout.find (furniture => 
+              furniture.idFurniture == idFurniture && furniture.elementvarnish == elementvarnish
+        );
         console.table(elementPanier);
 
         if (elementPanier == undefined) {
@@ -95,10 +95,10 @@ adress('http://localhost:3000/api/furniture' + "/" + idFurniture)
             let elementName = element.name;
             let elementPrice = element.price;
             let elementQuantity = 1;
-            addShopping.push({elementImg,idFurniture, elementName, elementvarnish, elementPrice, elementQuantity});
-
+            //Ajout dans le localStorage
+            panierAjout.push({elementImg,idFurniture, elementName, elementvarnish, elementPrice, elementQuantity});
         } else {
-            addShopping.forEach(product => {
+            panierAjout.forEach(product => {
                 if (product.idFurniture === idFurniture) {
                   product.elementQuantity++
                 }
@@ -106,13 +106,20 @@ adress('http://localhost:3000/api/furniture' + "/" + idFurniture)
             console.log('Produit ajouté au panier', idFurniture, elementvarnish);
             alert("Produit " + element.name + " ajouté au panier en vernis " + elementvarnish)
         }
-        localStorage.setItem('panier', JSON.stringify(addShopping));
+        localStorage.setItem('panier', JSON.stringify(panierAjout));
 
-
+        window.location.href = 'shopping.html'
       
     });
 
+}
+)
+.catch ((error) => {
+    alert ('Désolé le serveur ne répond pas ! Veuillez réessayez prochainement !');
+    
 });
+
+
 
 
 

@@ -74,7 +74,177 @@ img.pull-left { margin-right: 10px; }
 .img-fluid {max-width: 80%; border: none; border-radius: 20px;}
 
 /*Shopping*/
-th {padding: 10px;}
+.cart-wrap {
+	padding: 40px 0;
+}
+.main-heading {
+	font-size: 30px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.table-cart thead {
+    border-bottom: 1px solid #e5e5e5;
+}
+.table-cart thead tr th {
+    padding: 8px 0 18px;
+    color: #484848;
+    font-size: 15px;
+    font-weight: 400;
+}
+.table-cart tr td {
+    padding: 40px 0 27px;
+    vertical-align: middle;
+}
+.table-cart tr td:nth-child(1) {
+    width: 52%;
+}
+.table-cart tr td:nth-child(2) {
+    width: 26%;
+}
+.table-cart tr td:nth-child(3) {
+    width: 13.333%;
+}
+.table-cart tr td:nth-child(4) {
+    width: 8.667%;
+    text-align: right;
+}
+#orderProduct .img-product {
+    width: 72px;
+    float: left;
+    margin-left: 8px;
+    margin-right: 31px;
+    line-height: 63px;
+}
+#orderProduct .img-product img {
+	width: 100%;
+}
+#orderProduct .name-product {
+    font-size: 15px;
+    color: #484848;
+    padding-top: 8px;
+    line-height: 24px;
+    width: 50%;
+}
+#orderProduct .price {
+    text-align: right;
+    line-height: 64px;
+    margin-right: 40px;
+    color: #989898;
+    font-size: 16px;
+    font-family: 'Nunito';
+}
+#orderProduct .quanlity {
+    position: relative;
+}
+#productCount 
+{
+	width: 60px;
+    height: 34px;
+    text-align: center;
+    font-size: 19px;
+    line-height: 34px;
+    color: #000;
+    font-weight: 600;
+}
+
+.count-inlineflex {
+	
+	border: solid 2px #ccc;
+	border-radius: 20px;  
+}
+.total {
+	font-size: 24px;
+	font-weight: 600;
+	color: #FF8A65;
+}
+.display-flex {
+	display: flex;
+}
+.align-center {
+	align-items: center;
+}
+
+.coupon-box {
+    padding: 63px 0 58px;
+    text-align: center;
+    border: 2px dotted #e5e5e5;
+    border-radius: 10px;
+    margin-top: 55px;
+}
+.coupon-box form input {
+    display: inline-block;
+    width: 264px;
+    margin-right: 13px;
+    height: 44px;
+    border-radius: 25px;
+    border: solid 2px #cccccc;
+    padding: 5px 15px;
+    font-size: 14px;
+}
+.round-black-btn {
+	border-radius: 25px;
+    background: #212529;
+    color: #fff;
+    padding: 8px 35px;
+    display: inline-block;
+    border: solid 2px #212529; 
+    transition: all 0.5s ease-in-out 0s;
+    cursor: pointer;
+}
+.round-black-btn:hover,
+.round-black-btn:focus {
+	background: transparent;
+	color: #212529;
+	text-decoration: none;
+}
+.cart-totals {
+	border-radius: 3px;
+	background: #F5F5F5;
+	padding: 25px;
+}
+.cart-totals h3 {
+	font-size: 19px;
+    color: #3c3c3c;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.cart-totals table {
+	width: 100%;
+}
+.cart-totals table tr th,
+.cart-totals table tr td {
+	width: 50%;
+    padding: 3px 0;
+    vertical-align: middle;
+}
+.cart-totals table tr td:last-child {
+	text-align: right;
+}
+.cart-totals table tr td.subtotal {
+	font-size: 20px;
+    color: #6f6f6f;
+}
+.cart-totals table tr td.free-shipping {
+	font-size: 14px;
+    color: #6f6f6f;
+}
+.cart-totals table tr.total-row td {
+	padding-top: 25px;
+}
+.cart-totals table tr td.price-total {   
+	font-size: 24px;
+    font-weight: 600;
+    color: #FF8A65;
+}
+.btn-cart-totals {
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 20px;
+}
+.btn-cart-totals .round-black-btn {
+	margin: 10px 0; 
+}
+.fa-trash-alt {color: #424242; }
 
 
 

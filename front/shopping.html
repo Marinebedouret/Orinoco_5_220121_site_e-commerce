@@ -66,47 +66,122 @@
 
 	<header id="head" class="secondary"></header>
 
+	<div class="cart-wrap">
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="../index.html">Accueil</a></li>
+				<li class="active">Panier</li>
+			</ol>
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="main-heading"> Mon panier </div>
+					<div class="table-cart">
+						<table id="order">
+							<thead>
+								<tr>
+									<th>Produit</th>
+									<th>Quantité</th>
+									<th>Total</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody id="orderSection">
+								<tr>
+									<td id="orderProduct">
+									</td>
+									<td id="productCount">
+									</td>
+									<td id="orderTotal">
+									</td>
+									<td id="productDelete">
+									</td>
+								</tr>
 
-	<main class=" mt-5 pt-5 mb-1 panier">
+							</tbody>
+						</table>
+						<div class="coupon-box">
+							<form action="#" method="get" accept-charset="utf-8">
+								<div class="coupon-input">
+									<input type="text" name="coupon code" placeholder="Entrez un code promo">
+									<button type="submit" class="round-black-btn">Appliquer</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- /.table-cart -->
+				</div>
+				<!-- /.col-lg-8 -->
+				<div class="col-lg-4">
+					<div class="cart-totals">
+						<h3>Récapitulatif</h3>
+						<form action="#" method="get" accept-charset="utf-8">
+							<table id="recapTable">
+								<tbody id="recapSubTotal">
+									<tr id="recapTr">
+										<td class="subTotalTitle">Sous-total</td>
+										<td class="subTotal"></td>
+									</tr>
+									<tr>
+										<td>Livraison</td>
+										<td class="free-shipping">Livraison Gratuite</td>
+									</tr>
+									<tr class="total-row">
+										<td>Total</td>
+										<td class="price-total">$1,591.00</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="btn-cart-totals">
+								<a href="#" class="update round-black-btn" title="">Update Cart</a>
+								<a href="#" class="checkout round-black-btn" title="">Proceed to Checkout</a>
+							</div>
+							<!-- /.btn-cart-totals -->
+						</form>
+						<!-- /form -->
+					</div>
+					<!-- /.cart-totals -->
+				</div>
+				<!-- /.col-lg-4 -->
+			</div>
+		</div>
+	</div>
 
-		<ol class="breadcrumb">
-			<li><a href="../index.html">Accueil</a></li>
-			<li class="active">Panier</li>
-		</ol>
-			<div id="basketDetail">
-				<h1 id="emptyShopping">Votre panier est vide !</h1>
-			</div>	  
-		<div class="form">
-			<form>
-				<fieldset>
+	<div class="form">
+		<form>
+			<fieldset>
 				<legend>Informations clients</legend>
 				<div class="form_group">
 					<label for="name">Nom :</label>
-					<input type="text" id="name" class="form_control" required name="name" placeholder="Entrez votre nom">
+					<input type="text" id="name" class="form_control" required name="name"
+						placeholder="Entrez votre nom">
 				</div>
 				<div class="form_group">
 					<label for="firstName">Prénom :</label>
-					<input type="text" id="firstName" class="form_control" required name="firstName" placeholder="Entrez votre prénom">
+					<input type="text" id="firstName" class="form_control" required name="firstName"
+						placeholder="Entrez votre prénom">
 				</div>
 				<div class="form_group">
 					<label for="userMail">E-mail :</label>
-					<input type="email" id="userMail" class="form_control" required name="userMail" placeholder="exemple@mail.fr">
+					<input type="email" id="userMail" class="form_control" required name="userMail"
+						placeholder="exemple@mail.fr">
 				</div>
 				<div class="form_group">
 					<label for="userAddress">Adresse :</label>
-					<input type="text" id="userAddress" class="form_control" required name="userAddress" placeholder="Votre adresse">
+					<input type="text" id="userAddress" class="form_control" required name="userAddress"
+						placeholder="Votre adresse">
 				</div>
 				<div class="form_group">
 					<label for="userCountry">Ville :</label>
-					<input type="text" id="userCountry" class="form_control" required name="userCountry" placeholder="Ville">
+					<input type="text" id="userCountry" class="form_control" required name="userCountry"
+						placeholder="Ville">
 				</div>
 			</fieldset>
 			<input type="button" value="Validation du panier" class="btn btn-action btn-lg" id="ValidCommand">
-			</form>
+		</form>
 
-		</div>
+	</div>
 
-		
+
 	</main>
 
 
@@ -198,9 +273,6 @@
 	<script src="assets/js/jQuery.headroom.min.js"></script>
 	<script src="assets/js/template.js"></script>
 	<script src="shopping.js"></script>
-	<script>
-		addition ();
-	</script>
 
 </body>
 

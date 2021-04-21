@@ -74,9 +74,10 @@
 			</ol>
 			<div class="row">
 				<div class="col-lg-8">
-					<div class="main-heading"> Mon panier </div>
+					<h1 class="main-heading"> Mon panier </h1>
 					<div class="table-cart">
 						<table id="order">
+							<div class="statusCart"></div>
 							<thead>
 								<tr>
 									<th>Produit</th>
@@ -85,7 +86,7 @@
 									<th></th>
 								</tr>
 							</thead>
-							<tbody id="orderSection">
+							<tbody id="orderSection" class="statusPanier">
 								<tr>
 									<td id="orderProduct">
 									</td>
@@ -119,7 +120,7 @@
 								<tbody id="recapSubTotal">
 									<tr id="recapTr">
 										<td class="subTotalTitle">Sous-total</td>
-										<td class="subTotal"></td>
+										<td id="subTotal"></td>
 									</tr>
 									<tr>
 										<td>Livraison</td>
@@ -127,7 +128,7 @@
 									</tr>
 									<tr class="total-row">
 										<td>Total</td>
-										<td class="price-total">$1,591.00</td>
+										<td id="priceTotal">$1,591.00</td>
 									</tr>
 								</tbody>
 							</table>
@@ -153,36 +154,37 @@
 				<div class="form_group">
 					<label for="name">Nom :</label>
 					<input type="text" id="name" class="form_control" required name="name"
-						placeholder="Entrez votre nom">
+						placeholder="Entrez votre nom"><span id="formatNewsName"></span>
 				</div>
 				<div class="form_group">
 					<label for="firstName">Prénom :</label>
 					<input type="text" id="firstName" class="form_control" required name="firstName"
-						placeholder="Entrez votre prénom">
+						placeholder="Entrez votre prénom"><span id="formatNewsFirstname"></span>
 				</div>
 				<div class="form_group">
 					<label for="userMail">E-mail :</label>
 					<input type="email" id="userMail" class="form_control" required name="userMail"
-						placeholder="exemple@mail.fr">
+						placeholder="exemple@mail.fr"><span id="formatNewsEmail"></span>
 				</div>
 				<div class="form_group">
 					<label for="userAddress">Adresse :</label>
-					<input type="text" id="userAddress" class="form_control" required name="userAddress"
-						placeholder="Votre adresse">
+					<input type="text" id="userAddress" class="form_control" required name="userAddress" placeholder="Votre adresse"><span id="formatNewsAdress"></span>
 				</div>
 				<div class="form_group">
-					<label for="userCountry">Ville :</label>
-					<input type="text" id="userCountry" class="form_control" required name="userCountry"
-						placeholder="Ville">
+					<label for="userCity">Ville :</label>
+					<input type="text" id="userCity" class="form_control " required name="userCity"
+						placeholder="Ville"><span id="formatNewsCity"></span>
+				</div>
+				<div class="form_group">
+					<label for="postCode">Code postal :</label>
+					<input type="text" id="postCode" class="form_control" required name="postCode"
+						placeholder="Votre code postal"><span id="formatNewsPostCode"></span>
 				</div>
 			</fieldset>
-			<input type="button" value="Validation du panier" class="btn btn-action btn-lg" id="ValidCommand">
+			<input type="submit" value="Validation du panier" class="btn btn-action btn-lg" id="validCommand">
 		</form>
 
 	</div>
-
-
-	</main>
 
 
 	<footer id="footer" class="top-space">
@@ -273,6 +275,10 @@
 	<script src="assets/js/jQuery.headroom.min.js"></script>
 	<script src="assets/js/template.js"></script>
 	<script src="shopping.js"></script>
+	<script>
+		checkPanier()
+	</script>
+
 
 </body>
 

@@ -8,6 +8,7 @@ const lastName = JSON.parse(localStorage.getItem('lastName'));
 // orderConfirmation pour afficher les éléments de la commande
 const confirm = document.getElementById('orderConfirmation');
 
+
 //Mise en place de la structure de la page order-confirm
 const confirmTitle = document.createElement('h1');
 confirmTitle.className = 'card';
@@ -28,6 +29,16 @@ confirm.append(confirmText);
 
 const confirmTotal = document.createElement('p');
 confirmTotal.className = 'card-text';
-confirmTotal.style.color = '#607D8B';
 confirmTotal.innerHTML = 'Le montant total de votre commande est de ' + total + ' €';
 confirm.append(confirmTotal);
+
+//Retour vers la page d'accueil + localStorage vide
+ const backHome = document.createElement('button');
+ backHome.className = 'round-black-btn';
+ backHome.innerHTML = 'Accueil';
+ confirm.append(backHome);
+
+ backHome.addEventListener('click', function(){
+     localStorage.clear(); //Vide lo localstorage
+     window.location.href="../index.html";
+ });

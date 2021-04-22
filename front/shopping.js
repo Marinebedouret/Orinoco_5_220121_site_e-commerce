@@ -186,6 +186,7 @@ lineProductDelete.appendChild(imgDelete);
     };
 }
 
+
 //Formulaire
 
 //Expression régulière pour les différents input

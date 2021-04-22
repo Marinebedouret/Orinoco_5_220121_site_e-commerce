@@ -64,33 +64,31 @@ adress('http://localhost:3000/api/furniture' + "/" + idFurniture)
 }
    
     //Bouton panier
-    const panier = document.getElementById('AddProductPanier');
+    const cart = document.getElementById('AddProductPanier');
     //Création du bouton pour ajouter au panier
-    const btnPanier = document.createElement('a');
-    btnPanier.className = "btn btn-action btn-lg";
-    btnPanier.href = "shopping.html";
-    btnPanier.innerHTML = 'Ajouter au panier';
-    panier.append(btnPanier);
+    const btnCart = document.createElement('a');
+    btnCart.className = "btn btn-action btn-lg";
+    btnCart.href = "shopping.html";
+    btnCart.innerHTML = 'Ajouter au panier';
+    cart.append(btnCart);
 
 
     //addEventListener sert à écouter l'événement click sur le bouton ajouter au panier
-   btnPanier.addEventListener('click', function (ajout) {
+    btnCart.addEventListener('click', function (ajout) {
     // Annule l'action par défaut de l'élément
         ajout.preventDefault()
-
-        
 
         //Récupére la valeur de l'option sélectionnée (valeur = vernis du produit)
         let elementvarnish = choosevarnish.options[choosevarnish.selectedIndex].value;
         const panierAjout = JSON.parse(localStorage.getItem('panier'));
         console.log(panierAjout);
         //find() renvoie la valeur du premier élément trouvé dans le tableau qui respect la condition donnée par la fonction passé en argument
-        const elementPanier = panierAjout.find (furniture => 
+        const elementCart = panierAjout.find (furniture => 
               furniture.idFurniture == idFurniture && furniture.elementvarnish == elementvarnish
         );
-        console.table(elementPanier);
+        console.table(elementCart);
 
-        if (elementPanier == undefined) {
+        if (elementCart == undefined) {
             let elementImg = element.imageUrl;
             let elementName = element.name;
             let elementPrice = element.price;

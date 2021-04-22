@@ -114,6 +114,8 @@ img.pull-left { margin-right: 10px; }
     margin-left: 8px;
     margin-right: 31px;
     line-height: 63px;
+	border: none;
+	border-radius: 20px;
 }
 #orderProduct .img-product img {
 	width: 100%;
@@ -128,7 +130,6 @@ img.pull-left { margin-right: 10px; }
 #orderProduct .price {
     text-align: right;
     line-height: 64px;
-    margin-right: 40px;
     color: #989898;
     font-size: 16px;
     font-family: 'Nunito';
@@ -146,13 +147,7 @@ img.pull-left { margin-right: 10px; }
     color: #000;
     font-weight: 600;
 }
-
-.count-inlineflex {
-	
-	border: solid 2px #ccc;
-	border-radius: 20px;  
-}
-.total {
+#priceTotal, .total {
 	font-size: 24px;
 	font-weight: 600;
 	color: #FF8A65;
@@ -244,7 +239,12 @@ img.pull-left { margin-right: 10px; }
 .btn-cart-totals .round-black-btn {
 	margin: 10px 0; 
 }
-.fa-trash-alt {color: #424242; }
+.fa-trash-alt {color: #424242; margin-left: 20px; }
+
+
+/* Formulaire */
+.form{ margin: 12px; text-align: center;}
+label{ margin-bottom: 10px;}
 
 
 

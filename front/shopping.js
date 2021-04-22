@@ -18,14 +18,18 @@ let total = 0;
 let totalCart = document.getElementById('priceTotal');
 JSON.parse(localStorage.getItem('panier')).forEach((product)=>{
     total+=product.elementPrice /100 * product.elementQuantity;
-    console.log(total)
-})
+    console.log(total);
+
+    localStorage.setItem('priceTotal', total);
+});
+
 
 
 //sous-total panier
 let subTotalCart = document.getElementById('subTotal');
 subTotalCart.textContent = total + ",00€";
 totalCart.textContent = total + ",00€";
+
 
 
 
@@ -47,6 +51,7 @@ if(!panierAjout.length){
 
     for (let i= 0; i < panierAjout.length; i++){
     const productCart = panierAjout[i];
+    console.table(productCart);
 
     const elementId = productCart.elementId;
     const elementName = productCart.elementName;
@@ -55,11 +60,6 @@ if(!panierAjout.length){
     const elementQuantity = productCart.elementQuantity;
     const elementPrice = productCart.elementPrice /100 + "€";
     let subTotal = productCart.elementPrice /100 * productCart.elementQuantity +"€";
-
-
- 
-
-
 
 
 //-----------------------------------------------------------Construction de la page panier--------------------------------------------------------------------------------------
@@ -112,6 +112,23 @@ let unitPriceProduct = document.getElementsByClassName('price');
 unitPriceProduct.textContent += elementPrice;
 console.log(elementPrice);
 
+//Bouton pour enlever une quantité au produit
+const btnMinus = document.createElement('td');
+btnMinus.className = "minus";
+btnMinus.setAttribute("id", "btnMinus"+i);
+const imgMinus = document.createElement('i');
+imgMinus.className = 'fas fa-minus';
+
+
+//Fonction pour enlever la quantité au produit
+btnMinus.addEventListener('click', function(){
+    if(productCart.elementQuantity > 1){
+     productCart.elementQuantity--;
+    }
+    localStorage.setItem('panier', JSON.stringify(panierAjout));
+    document.location.reload() // reload() permet de recharger la page
+ 
+ });
 
 //Déclaration & création soustotal
 let orderTotal = document.getElementById('orderTotal');
@@ -120,23 +137,22 @@ let subTotalProduct = document.createElement('td');
 subTotalProduct.className = 'total value';
 console.log(subTotal);
 
-//Création de l'icone poubelle pour pouvoir supprimer un produit du panier
-let deleteProduct = document.createElement('td');
+//Création de l'icone poubelle pour pouvoir supprimer les produits du panier
+let deleteProduct = document.createElement('tr');
 deleteProduct.className = 'delete';
-let lineProductDelete  = document.createElement('button');
-lineProductDelete.setAttribute("id", "btn"+i);
+let lineProductDelete  = document.createElement('td');
+deleteProduct.setAttribute("id", "btn"+i);
 const imgDelete = document.createElement('i');
 imgDelete.className = 'fas fa-trash-alt';
 
 
-//Fonction on supprime produit
-lineProductDelete.addEventListener('click', function(){
-   if(productCart.elementQuantity > 1){
-    productCart.elementQuantity--;
-   }
-   localStorage.setItem('panier', JSON.stringify(panierAjout));
-   document.location.reload()
-
+//Fonction pour supprimer les produits du panier au clic sur la poubelle
+deleteProduct.addEventListener('click', function(){
+    ordreSection.parentNode.removeChild(ordreSection);
+    panierAjout.splice(i,1);
+    localStorage.clear();
+    localStorage.setItem('panier', JSON.stringify(panierAjout));
+    document.location.reload()
 });
 
 
@@ -151,6 +167,8 @@ lineProduct.append(divUnitPriceProduct);
 divUnitPriceProduct.append(elementPrice);
 ordreSection.append(productCount);
 productCount.appendChild(lineQuantity);
+lineQuantity.appendChild(btnMinus);
+btnMinus.appendChild(imgMinus);
 lineQuantity.appendChild(pQuantity);
 pQuantity.append(elementQuantity);
 ordreSection.appendChild(orderTotal);
@@ -164,31 +182,9 @@ lineProductDelete.appendChild(imgDelete);
 
 
 
-    }
-}
 
-
-//Vérification du panier
-checkPanier = () => {
-    //Variable pour vérifier si le panier est vide ou s'il y a au moins un produit dans le panier
-    let statusCart = JSON.parse(localStorage.getItem('panier'));
-    //Si le panier est vide ou null 
-    if(statusCart.length < 1 || statusCart == null){
-        console.log("Le localStorage ne contient pas de panier");
-        alert("Votre panier est vide");
-        return false;
-    }else{
-        console.log('Votre panier contient des produits')
-        //Le panier contient des produits alors on envoie l'information à l'API
-        JSON.parse(localStorage.getItem('panier')).forEach((product)=>{
-            products.push(product._id);
-        });
-        console.log(products);
-        return true;
     };
-
-
-};
+}
 
 //Formulaire
 
@@ -217,7 +213,7 @@ let addressInput = document.getElementById('userAddress');
 let cityInput = document.getElementById('userCity');
 let postCodeInput = document.getElementById('postCode');
 let btnValid = document.getElementById('validCommand');
-console.log(btnValid);
+
 
 
 
@@ -265,9 +261,55 @@ btnValid.addEventListener('click', function(event) {
         postCode : postCodeInput.value
     };
     console.log(contact);
-
+    sendData ({contact: contact, products: products});
 
 });
+//Vérification du panier
+checkPanier = () => {
+    //Variable pour vérifier si le panier est vide ou s'il y a au moins un produit dans le panier
+    let statusCart = JSON.parse(localStorage.getItem('panier'));
+    //Si le panier est vide ou null 
+    if(statusCart.length < 1 || statusCart == null){
+        console.log("Le localStorage ne contient pas de panier");
+        alert("Votre panier est vide");
+        return false;
+    }else{
+        console.log('Votre panier contient des produits')
+        //Le panier contient des produits alors on envoie l'information à l'API
+        JSON.parse(localStorage.getItem('panier')).forEach((product)=>{
+            products.push(product.idFurniture);
+        });
+        console.log(products);
+        return true;
+    };
 
+};
 
+//Utilisation de la méthode Fetch pour envoyer les infos au serveur avec POST
 
+let sendData = async function(data){
+    try{
+        let response = await fetch(apiUrl +"order", {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        if(response.ok){
+            let data = await response.json();
+            localStorage.setItem("orderId", JSON.stringify(data.orderId));
+            localStorage.setItem("firstName", JSON.stringify(data.contact.firstName));
+            localStorage.setItem("lastName", JSON.stringify(data.contact.lastName));
+            window.location.href = "order-confirm.html";
+            console.log(data);
+        }
+        else{
+            console.error('Serveur:', response.status);
+            alert('Serveur:' + response.status);
+        }
+    }
+    catch(error){
+        alert('Désolé le serveur ne répond pas !Veuillez réessayer plus tard !')
+    };
+}

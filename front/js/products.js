@@ -12,6 +12,9 @@ fetch("http://localhost:3000/api/furniture",{
 .then(response => {
     getAllFurniture(response)
 })
+.catch((error)=>{
+    alert('Désolé le serveur ne fonctionne pas ! Veuillez réessayer plus tard !');
+});
 //FONCTION AFFICHAGE DES 5 MEUBLES
 function getAllFurniture(furnitures){
     furnitures.forEach(furniture => {                           //forEach execute la fonction sur l'ensemble de produits
@@ -41,15 +44,9 @@ function getAllFurniture(furnitures){
         main.appendChild(rowCarte)
         
         console.table(furnitures);
+       
     }); 
-    
+   
 }
-
-/*try {
-    getAllFurniture();
-}catch (error){
-    alert('Désolé le serveur ne répond pas !')
-};*/
-
 
 

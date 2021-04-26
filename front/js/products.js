@@ -39,13 +39,17 @@ function getAllFurniture(furnitures){
         carte.appendChild(link)
         rowCarte.appendChild(carte)
         main.appendChild(rowCarte)
+        
+        console.table(furnitures);
+    }); 
+    
+}
 
-    });
+/*try {
+    getAllFurniture();
+}catch (error){
+    alert('Désolé le serveur ne répond pas !')
+};*/
 
-
-console.table(furnitures);
-   
-
-} 
 
 

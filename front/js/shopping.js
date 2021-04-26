@@ -1,9 +1,9 @@
 //LocalStorage
-if(!localStorage.getItem('panier')){
-    localStorage.setItem('panier', JSON.stringify([]))
+if(!localStorage.getItem('cart')){
+    localStorage.setItem('cart', JSON.stringify([]))
 };
 //Récupération & affichage des produits dans le localStorage
-const panierAjout = JSON.parse(localStorage.getItem('panier'));
+const addCart = JSON.parse(localStorage.getItem('cart'));
 //Récupération de l'url de l'api
 const apiUrl = "http://localhost:3000/api/furniture" + "/";
 
@@ -16,7 +16,7 @@ let products = [];
 //Total panier
 let total = 0;
 let totalCart = document.getElementById('priceTotal');
-JSON.parse(localStorage.getItem('panier')).forEach((product)=>{
+JSON.parse(localStorage.getItem('cart')).forEach((product)=>{
     total+=product.elementPrice /100 * product.elementQuantity;
     console.log(total);
 
@@ -44,13 +44,13 @@ let order = document.getElementById('order');
 let orderProduct = document.getElementById('orderProduct');
 
 
-if(!panierAjout.length){
+if(!addCart.length){
     userCartTitle.textContent = "Votre panier est vide!";
 }else{
     userCartTitle.textContent = "Récapitulatif des produits dans votre panier!";
 
-    for (let i= 0; i < panierAjout.length; i++){
-    const productCart = panierAjout[i];
+    for (let i= 0; i < addCart.length; i++){
+    const productCart = addCart[i];
     console.table(productCart);
 
     const elementId = productCart.elementId;
@@ -125,7 +125,7 @@ btnMinus.addEventListener('click', function(){
     if(productCart.elementQuantity > 1){
      productCart.elementQuantity--;
     }
-    localStorage.setItem('panier', JSON.stringify(panierAjout));
+    localStorage.setItem('cart', JSON.stringify(addCart));
     document.location.reload() // reload() permet de recharger la page
  
  });
@@ -140,7 +140,7 @@ btnMinus.addEventListener('click', function(){
  //Fonction pour ajouter une quantité au produit
 btnPlus.addEventListener('click', function(){
     productCart.elementQuantity ++;
-    localStorage.setItem('panier', JSON.stringify(panierAjout));
+    localStorage.setItem('cart', JSON.stringify(addCart));
     document.location.reload()
 });
 
@@ -163,9 +163,9 @@ imgDelete.className = 'fas fa-trash-alt';
 //Fonction pour supprimer les produits du panier au clic sur la poubelle
 deleteProduct.addEventListener('click', function(){
     ordreSection.parentNode.removeChild(ordreSection);
-    panierAjout.splice(i,1);
+    addCart.splice(i,1);
     localStorage.clear();
-    localStorage.setItem('panier', JSON.stringify(panierAjout));
+    localStorage.setItem('cart', JSON.stringify(addCart));
     document.location.reload()
 });
 
@@ -284,7 +284,7 @@ btnValid.addEventListener('click', function(event) {
 //Vérification du panier
 checkPanier = () => {
     //Variable pour vérifier si le panier est vide ou s'il y a au moins un produit dans le panier
-    let statusCart = JSON.parse(localStorage.getItem('panier'));
+    let statusCart = JSON.parse(localStorage.getItem('cart'));
     //Si le panier est vide ou null 
     if(statusCart.length < 1 || statusCart == null){
         console.log("Le localStorage ne contient pas de panier");
@@ -293,7 +293,7 @@ checkPanier = () => {
     }else{
         console.log('Votre panier contient des produits')
         //Le panier contient des produits alors on envoie l'information à l'API
-        JSON.parse(localStorage.getItem('panier')).forEach((product)=>{
+        JSON.parse(localStorage.getItem('cart')).forEach((product)=>{
             products.push(product.idFurniture);
         });
         console.log(products);

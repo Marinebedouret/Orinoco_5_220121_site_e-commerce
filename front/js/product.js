@@ -1,8 +1,8 @@
 //Localstorage
-if (!localStorage.getItem('panier')){
-    localStorage.setItem('panier', JSON.stringify([]))
+if (!localStorage.getItem('cart')){
+    localStorage.setItem('cart', JSON.stringify([]))
 };
-const panierAjout = JSON.parse(localStorage.getItem('panier')); //Récupération & affichage des produits
+const addCart = JSON.parse(localStorage.getItem('cart')); //Récupération & affichage des produits
 
 //LOCALISATION DANS LE DOCUMENT HTML
 const main = document.querySelector("main")
@@ -80,10 +80,10 @@ adress('http://localhost:3000/api/furniture' + "/" + idFurniture)
 
         //Récupére la valeur de l'option sélectionnée (valeur = vernis du produit)
         let elementvarnish = choosevarnish.options[choosevarnish.selectedIndex].value;
-        const panierAjout = JSON.parse(localStorage.getItem('panier'));
-        console.log(panierAjout);
+        const addCart = JSON.parse(localStorage.getItem('cart'));
+        console.log(addCart);
         //find() renvoie la valeur du premier élément trouvé dans le tableau qui respect la condition donnée par la fonction passé en argument
-        const elementCart = panierAjout.find (furniture => 
+        const elementCart = addCart.find (furniture => 
               furniture.idFurniture == idFurniture && furniture.elementvarnish == elementvarnish
         );
         console.table(elementCart);
@@ -94,9 +94,9 @@ adress('http://localhost:3000/api/furniture' + "/" + idFurniture)
             let elementPrice = element.price;
             let elementQuantity = 1;
             //Ajout dans le localStorage
-            panierAjout.push({elementImg,idFurniture, elementName, elementvarnish, elementPrice, elementQuantity});
+            addCart.push({elementImg,idFurniture, elementName, elementvarnish, elementPrice, elementQuantity});
         } else {
-            panierAjout.forEach(product => {
+            addCart.forEach(product => {
                 if (product.idFurniture === idFurniture) {
                   product.elementQuantity++
                 }
@@ -104,7 +104,7 @@ adress('http://localhost:3000/api/furniture' + "/" + idFurniture)
             console.log('Produit ajouté au panier', idFurniture, elementvarnish);
             alert("Produit " + element.name + " ajouté au panier en vernis " + elementvarnish)
         }
-        localStorage.setItem('panier', JSON.stringify(panierAjout));
+        localStorage.setItem('cart', JSON.stringify(addCart));
 
         window.location.href = 'shopping.html'
       

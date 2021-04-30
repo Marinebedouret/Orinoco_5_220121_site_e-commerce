@@ -39,5 +39,6 @@ confirm.append(confirmTotal);
  confirm.append(backHome);
 
  backHome.addEventListener('click', function(){
+  localStorage.clear();
      window.location.href="../index.html";
  });

@@ -318,7 +318,6 @@ let sendData = async function(data){
             localStorage.setItem("orderId", JSON.stringify(data.orderId));
             localStorage.setItem("firstName", JSON.stringify(data.contact.firstName));
             localStorage.setItem("lastName", JSON.stringify(data.contact.lastName));
-            localStorage.clear();
             window.location.href = "order-confirm.html";
             console.log(data);
         }

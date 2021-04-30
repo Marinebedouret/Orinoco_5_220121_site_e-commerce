@@ -39,6 +39,5 @@ confirm.append(confirmTotal);
  confirm.append(backHome);
 
  backHome.addEventListener('click', function(){
-     localStorage.clear(); //Vide lo localstorage
      window.location.href="../index.html";
  });
